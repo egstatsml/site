@@ -2,9 +2,9 @@
 
 ;; Copyright (C) 2025 Brihadeesh S
 
-;; Author: Brihadeesh S <contact@ethan.site>
+;; Author: Brihadeesh S <contact@ethangoan.com>
 ;; Version: 1.0
-;; URL: https://git.sr.ht/~ethan/ethan.site
+;; URL: https://git.sr.ht/~ethan/ethangoan.com
 
 ;;; Commentary:
 
@@ -43,12 +43,12 @@
 (defvar website-title "Ethan Goan"
   "The title of this site.")
 
-(defvar website-url "ethan.site"
+(defvar website-url "ethangoan.com"
   "The URL of this site.")
 
 ;; author details
 (setq user-full-name "Ethan Goan"
-      user-mail-address "contact@ethan.site")
+      user-mail-address "contact@ethangoan.com")
 
 
 ;; Customize the HTML output
@@ -271,7 +271,7 @@ ATTRS specify additional attributes."
 	 (link-home (file-name-as-directory (plist-get info :html-link-home)))
 	 (type (org-publish-find-property file :meta-type project))
 	 (full-url (concat link-home (file-name-sans-extension rel-file) "." extension))
-	 (image (concat "https://ethan.site/media/" (org-publish-find-property file :meta-image project))))
+	 (image (concat "https://ethangoan.com/media/" (org-publish-find-property file :meta-image project))))
     (mapconcat 'identity
 	       `(,(rw/org-html-close-tag "link" '(rel canonical) `(href ,full-url))
 		 ,(rw/org-html-close-tag "meta" '(property og:title) `(content ,title))
@@ -466,7 +466,7 @@ and PUB-DIR the output directory."
 
 	     ;; :with-title nil
 	     :html-head head-template
-	     :html-link-home "https://ethan.site/blog/"
+	     :html-link-home "https://ethangoan.com/blog/"
 	     :meta-type "article"
 	     :meta-image "og-image.jpg"
 
@@ -494,7 +494,7 @@ and PUB-DIR the output directory."
 
 	     ;; :with-title nil
 	     :html-head head-template
-	     :html-link-home "https://ethan.site/"
+	     :html-link-home "https://ethangoan.com/"
 	     :meta-type "page"
 	     :meta-image "og-image.jpg"
 
@@ -520,10 +520,10 @@ and PUB-DIR the output directory."
 	     ;; :with-title: nil
 	     :html-head head-template
 	     :meta-type "website"
-	     :html-head-extra "<link rel=\"canonical\" href=\"https://ethan.site/\">
-<meta property=\"og:url\" content=\"https://ethan.site/\">
+	     :html-head-extra "<link rel=\"canonical\" href=\"https://ethangoan.com/\">
+<meta property=\"og:url\" content=\"https://ethangoan.com/\">
 <meta property=\"og:title\" content=\"Ethan's blog\">
-<meta property=\"og:image\" content=\"https://ethan.site/media/og-image.jpg\">"
+<meta property=\"og:image\" content=\"https://ethangoan.com/media/og-image.jpg\">"
 	     :html-preamble header-template
 	     :html-postamble footer-template)
 
@@ -542,7 +542,7 @@ and PUB-DIR the output directory."
 ;; (webfeeder-build
 ;;  "blog/feed.xml"
 ;;  "./html"
-;;  "https://ethan.site/"
+;;  "https://ethangoan.com/"
 ;;  (let ((default-directory (expand-file-name "./html")))
 ;;    (remove "blog/index.html"
 ;; 	   (directory-files-recursively "blog"
@@ -577,7 +577,7 @@ and PUB-DIR the output directory."
 (defun ag-generate-first-sitemap-entry (timestamp)
   "Generate the first entry of the sitemap XML with the given TIMESTAMP."
   (concat "<url>\n"
-          "  <loc>https://ethan.site/</loc>\n"
+          "  <loc>https://ethangoan.com/</loc>\n"
           "  <lastmod>" timestamp "</lastmod>\n"
           "  <priority>1.00</priority>\n"
           "</url>\n"))
@@ -585,7 +585,7 @@ and PUB-DIR the output directory."
 (defun ag-generate-sitemap-entry (filename timestamp)
   "Generate a sitemap entry for a given FILENAME with the given TIMESTAMP."
   (concat "<url>\n"
-          "  <loc>https://ethan.site/" filename "</loc>\n"
+          "  <loc>https://ethangoan.com/" filename "</loc>\n"
           "  <lastmod>" timestamp "</lastmod>\n"
           "  <priority>0.80</priority>\n"
           "</url>\n"))
