@@ -6,7 +6,7 @@
 
 % Set page size and margins
 % Replace `letterpaper' with`a4paper' for UK/EU standard size
-\usepackage[letterpaper,top=1cm,bottom=1cm,left=1.5cm,right=1.5cm,marginparwidth=1.75cm]{geometry}
+\usepackage[letterpaper,top=0.5cm,bottom=0.5cm,left=1cm,right=1cm,marginparwidth=1.75cm]{geometry}
 
 % Useful packages
 \usepackage{amsmath}
@@ -18,9 +18,14 @@
 \titleformat*{\section}{\bfseries}
 \font\titlefont=cmr12 at 12pt
 \font\authorfont=cmr12 at 10pt
-\title{{\titlefont Errata and Addenda For My Articles}}
+\title{{\titlefont Comments, Errata, and Addenda For My Articles}}
 \author{{\authorfont Ethan Goan}}
+\date{\small \today}
+% Redefinition of ToC command to get centered heading
+\usepackage{tocloft, sectsty}
+\sectionfont{\fontsize{10}{12}\selectfont}
 
+\renewcommand{\sectionfont}{\smallfont\bfseries}
 \begin{document}
 \maketitle
 \tableofcontents
@@ -29,7 +34,7 @@
 % Don't move or change the name of this, just leave here and then recompile as needed
 
 \section{Uncertainty in Real-Time Semantic Segmentation on Embedded Systems}
-Corrected in arXiv version of paper
+Corrected on arXiv
 
 \textbf{Eq.6}  $ p(\mathbf{w} | \mathbf{X}, \mathbf{Y} , \theta ) \propto \Big[\prod_{i=0}^{N-1}\mathcal{N}\Big({\color{red}\mathbf{y}}|f(\mathbf{x}_{i};\theta) \mathbf{w}, \sigma^{2}\Big)\Big] p(\mathbf{w}).$
 
@@ -45,7 +50,7 @@ $ \mathcal{N}\Big(\frac{\mu_{j}}{\mu_{d}},\frac{\mu_{j}^{2}}{\mu_{d}^{2}}\big(\s
 In Table 1, predictive performance metrics for PIDNet used the pre-trained weights from the official repo for the testing set of CityScapes, which appears to have included the validation data during training. The mIOU for PIDNet and Bayes-PIDNet with the weights for the validation set are 0.761 and 0.758 respectively.
 
 \section{Piecewise Deterministic Markov Processes for Bayesian Neural Networks}
-Corrected in arXiv version of paper
+Corrected on arXiv
 
 \textbf{Eq. 11}: $t_{i} =  -b_{i} / a_{i} + \sqrt{b_{i}^{2} +  a_{i}^{2}t_{i-1}^{2} + 2a_{i}b_{i}t_{i-1} - 2a_{i}log(1 - U)}\big ) /a_{i}$
 
@@ -54,13 +59,9 @@ Corrected in arXiv version of paper
 \section{Bayesian Neural Networks: An Introduction and Survey}
 Corrected on arXiv
 
-% The leapfrog steps in \textbf{Eqns. 29-31} should read,
-% \begin{align*}
-%   v_i(t + \frac{\epsilon}{2}) = v_i(t) + \frac{\epsilon}{2} \dfrac{\partial U}{\partial w_{i}}(v(t)),
-%   \\
-%   w_i(t + \epsilon) = w_i(t) + \epsilon \frac{v_{i}(t + \epsilon /2)}{m_{i}},
-%   \\
-%   v_i(t + \epsilon) = v_i(t +\frac{\epsilon}{2}) - \frac{\epsilon}{2} \dfrac{\partial U}{\partial w_{i}}(v(t + \epsilon)).
-% \end{align*}
+Typos in, \textbf{Eqns 29-31} for leap frog integration. Have changed to match version given by Neal which is simpler.
+
+\textbf{Eq. 28} missing factor of $1/2$.
+
 For the $\alpha$ divergence on page 31, the limits to relate to forward/reverse KL divergence and Hellinger distance were not correct. It should be, $KL(q|p): \alpha \rightarrow 0, KL(p|q): \alpha \rightarrow 1,$ Hellinger: $ \alpha \rightarrow 0.5$.
 \end{document}
