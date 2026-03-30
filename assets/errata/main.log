@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.28)  28 MAR 2026 18:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.28)  29 MAR 2026 19:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -370,15 +370,15 @@ LaTeX Font Info:    ... okay on input line 24.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(85.35826pt, 443.57848pt, 85.35826pt)
-* v-part:(T,H,B)=(56.9055pt, 681.15898pt, 56.9055pt)
+* h-part:(L,W,R)=(42.67912pt, 528.93675pt, 42.67912pt)
+* v-part:(T,H,B)=(28.45274pt, 738.0645pt, 28.45274pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=443.57848pt
-* \textheight=681.15898pt
-* \oddsidemargin=13.08827pt
-* \evensidemargin=13.08827pt
-* \topmargin=-52.36449pt
+* \textwidth=528.93675pt
+* \textheight=738.0645pt
+* \oddsidemargin=-29.59087pt
+* \evensidemargin=-29.59087pt
+* \topmargin=-80.81725pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -436,16 +436,16 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: FDE920AF8EB3F7DFD05802D9B9494ECE;803.
+(rerunfilecheck)             Checksum: C1C0C78F50805AFEA6CF382D3D5EF82C;1124.
  ) 
 Here is how much of TeX's memory you used:
- 11409 strings out of 469515
- 174889 string characters out of 5470807
- 625759 words of memory out of 5000000
- 39938 multiletter control sequences out of 15000+600000
+ 11413 strings out of 469515
+ 174965 string characters out of 5470807
+ 633772 words of memory out of 5000000
+ 39941 multiletter control sequences out of 15000+600000
  633109 words of font info for 59 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,6n,79p,509b,463s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,10n,79p,509b,463s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/publi
@@ -455,10 +455,10 @@ share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on main.pdf (1 page, 127998 bytes).
+Output written on main.pdf (1 page, 135982 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
- 4 named destinations out of 1000 (max. 500000)
- 17 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 84 PDF objects out of 1000 (max. 8388607)
+ 58 compressed objects within 1 object stream
+ 5 named destinations out of 1000 (max. 500000)
+ 25 words of extra memory for PDF output out of 10000 (max. 10000000)
 

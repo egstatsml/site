@@ -6,7 +6,7 @@
 
 % Set page size and margins
 % Replace `letterpaper' with`a4paper' for UK/EU standard size
-\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage[letterpaper,top=1cm,bottom=1cm,left=1.5cm,right=1.5cm,marginparwidth=1.75cm]{geometry}
 
 % Useful packages
 \usepackage{amsmath}
@@ -31,8 +31,6 @@
 \section{Uncertainty in Real-Time Semantic Segmentation on Embedded Systems}
 Corrected in arXiv version of paper
 
-typos:
-
 \textbf{Eq.6}  $ p(\mathbf{w} | \mathbf{X}, \mathbf{Y} , \theta ) \propto \Big[\prod_{i=0}^{N-1}\mathcal{N}\Big({\color{red}\mathbf{y}}|f(\mathbf{x}_{i};\theta) \mathbf{w}, \sigma^{2}\Big)\Big] p(\mathbf{w}).$
 
 \textbf{Eq.10 and 12} should read $\sigma^{2}_{N}(\hat{\mathbf{x}}) =
@@ -44,6 +42,8 @@ $\sigma^{2}_{N}(\hat{\mathbf{x}}) \approx \sigma^{2} +
 
 $ \mathcal{N}\Big(\frac{\mu_{j}}{\mu_{d}},\frac{\mu_{j}^{2}}{\mu_{d}^{2}}\big(\sigma^{2}_{j} / \mu_{j}^{2} +  \sigma^{2}_{d} / \mu_{d}^{2} \big)\Big)$. The issue with this is the square of the $\mu_{d}$ terms, as this is at risk of numerical overflow in single-point precision. Instead we use $\sigma^{2} \approx \mu_{j} / \mu_{d}\sqrt{\sigma^{2}_{j} + \sigma^{2}_{d}}$, which emperically follwed a similar trend and was less of a risk for numerical overflow (though not immune).
 
+In Table 1, predictive performance metrics for PIDNet used the pre-trained weights from the official repo for the testing set of CityScapes, which appears to have included the validation data during training. The mIOU for PIDNet and Bayes-PIDNet with the weights for the validation set are 0.761 and 0.758 respectively.
+
 \section{Piecewise Deterministic Markov Processes for Bayesian Neural Networks}
 Corrected in arXiv version of paper
 
@@ -53,4 +53,16 @@ Corrected in arXiv version of paper
 
 \textbf{Bug}: When preparing my thesis, I found a bug in the code where gradients were not being appropriately scaled by the mini-batch and dataset size. Experiments rerun with results on arXiv. I also added some clarification to the event rate sampling algorithm which clarifies some of the results of how thinning work. This is captured by the $R$ term in Algorithm 2, and we explore this more in Appendix A. Code updated on Github as well.
 
+\section{Bayesian Neural Networks: An Introduction and Survey}
+Corrected on arXiv
+
+The leapfrog steps in \textbf{Eqns. 29-31} should read,
+\begin{align*}
+  v_i(t + \frac{\epsilon}{2}) = v_i(t) + \frac{\epsilon}{2} \dfrac{\partial U}{\partial w_{i}}(v(t)),
+  \\
+  w_i(t + \epsilon) = w_i(t) + \epsilon \frac{v_{i}(t + \epsilon /2)}{m_{i}},
+  \\
+  v_i(t + \epsilon) = v_i(t +\frac{\epsilon}{2}) - \frac{\epsilon}{2} \dfrac{\partial U}{\partial w_{i}}(v(t + \epsilon)).
+\end{align*}
+For the $\alpha$ divergence on page 31, the limits to relate to forward/reverse KL divergence and Hellinger distance were not correct. It should be, $KL(q|p): \alpha \rightarrow 0, KL(p|q): \alpha \rightarrow 1,$ Hellinger: $ \alpha \rightarrow 0.5$.
 \end{document}

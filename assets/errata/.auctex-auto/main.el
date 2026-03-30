@@ -6,7 +6,7 @@
    (TeX-add-to-alist 'LaTeX-provided-class-options
                      '(("article" "")))
    (TeX-add-to-alist 'LaTeX-provided-package-options
-                     '(("babel" "english") ("geometry" "letterpaper" "top=2cm" "bottom=2cm" "left=3cm" "right=3cm" "marginparwidth=1.75cm") ("amsmath" "") ("graphicx" "") ("xcolor" "") ("hyperref" "colorlinks=true" "allcolors=blue") ("titlesec" "")))
+                     '(("babel" "english") ("geometry" "letterpaper" "top=1cm" "bottom=1cm" "left=1.5cm" "right=1.5cm" "marginparwidth=1.75cm") ("amsmath" "") ("graphicx" "") ("xcolor" "") ("hyperref" "colorlinks=true" "allcolors=blue") ("titlesec" "")))
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "href")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
