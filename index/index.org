@@ -32,10 +32,10 @@ detection and fft estimation using deep learning. In 17th International Conferen
 and Communication Systems. IEEE, 2024. [[[https://arxiv.org/pdf/2402.19073][paper]]]
 
 E. Goan and C. Fookes. Uncertainty in real-time semantic segmentation on embedded systems. In
-Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops [[https://arxiv.org/abs/2301.01201][[paper]]] [[[https://github.com/egstatsml/eu-seg][code]]] [[[file:assets/errata/main.pdf][errata]]]
+Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops [[https://arxiv.org/abs/2301.01201][[paper]]] [[[https://github.com/egstatsml/eu-seg][code]]]
 
 E. Goan, D. Perrin, K. Mengersen, and C. Fookes. Piecewise deterministic markov processes for bayesian
-neural networks. In Uncertainty in Artificial Intelligence, 2023. [[https://arxiv.org/abs/2302.08724][[paper]]] [[https://github.com/egstatsml/tpdmp][[code]]] [[file:assets/errata/main.pdf][[errata]]]
+neural networks. In Uncertainty in Artificial Intelligence, 2023. [[https://arxiv.org/abs/2302.08724][[paper]]] [[https://github.com/egstatsml/tpdmp][[code]]] [[file:assets/comments_errata/comments_errata.pdf][[errata]]] 
 
 O. Tursun, S. Denman, S. Sridharan, E. Goan, and C. Fookes. An efficient framework for zero-shot
 sketch-based image retrieval. Pattern Recognition, 126:108528, 2022. [[https://arxiv.org/pdf/2102.04016][[paper]]]
@@ -59,4 +59,4 @@ R. Arablouei, E. Goan, S. Gensemer, and B. Kusy. Fast and robust pushbroom hyper
 In Novel Optical Systems Design and Optimization XIX, SPIE, 2016. [[https://arxiv.org/pdf/1608.00361][[paper]]]
 
 
-Comments and Errata for my articles: [[[file:../assets/errata/main.pdf][here]]]
+Comments and Errata for my articles: [[[file:../assets/comments_errata/comments_errata.pdf][here]]]

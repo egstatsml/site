@@ -1,12 +1,11 @@
 \documentclass{article}
-
 % Language setting
 % Replace `english' with e.g. `spanish' to change the document language
 \usepackage[english]{babel}
 
 % Set page size and margins
 % Replace `letterpaper' with`a4paper' for UK/EU standard size
-\usepackage[letterpaper,top=0.5cm,bottom=0.5cm,left=1cm,right=1cm,marginparwidth=1.75cm]{geometry}
+\usepackage[letterpaper,top=0.5cm,bottom=1cm,left=1cm,right=1cm,marginparwidth=1.75cm]{geometry}
 
 % Useful packages
 \usepackage{amsmath}
@@ -15,6 +14,7 @@
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
 \usepackage{titlesec}
+\renewcommand{\contentsname}{}
 \titleformat*{\section}{\bfseries}
 \font\titlefont=cmr12 at 12pt
 \font\authorfont=cmr12 at 10pt
@@ -24,14 +24,13 @@
 % Redefinition of ToC command to get centered heading
 \usepackage{tocloft, sectsty}
 \sectionfont{\fontsize{10}{12}\selectfont}
-
+\makeatletter
+\renewcommand{\tableofcontents}{\@starttoc{toc}}
+\makeatother
 \renewcommand{\sectionfont}{\smallfont\bfseries}
 \begin{document}
 \maketitle
 \tableofcontents
-
-% NOTE TO MYSELF
-% Don't move or change the name of this, just leave here and then recompile as needed
 
 \section{Uncertainty in Real-Time Semantic Segmentation on Embedded Systems}
 Corrected on arXiv
@@ -39,15 +38,15 @@ Corrected on arXiv
 \textbf{Eq.6}  $ p(\mathbf{w} | \mathbf{X}, \mathbf{Y} , \theta ) \propto \Big[\prod_{i=0}^{N-1}\mathcal{N}\Big({\color{red}\mathbf{y}}|f(\mathbf{x}_{i};\theta) \mathbf{w}, \sigma^{2}\Big)\Big] p(\mathbf{w}).$
 
 \textbf{Eq.10 and 12} should read $\sigma^{2}_{N}(\hat{\mathbf{x}}) =
-\sigma^{2} + {\color{red} \Phi}(\hat{\mathbf{x}})^{T}\Sigma_{\pi}{\color{red} \Phi}(\hat{\mathbf{x}})$ and
+\sigma^{2} + (\Phi(\hat{\mathbf{x}})\pi_{\mu})^{T}\Sigma_{\pi} (\Phi(\hat{\mathbf{x}})\pi_{\mu})$ and
 $\sigma^{2}_{N}(\hat{\mathbf{x}}) \approx \sigma^{2} +
-{\color{red}\Phi}(\hat{\mathbf{x}})^{T}\Sigma_{\text{diag}}{\color{red}\Phi}(\hat{\mathbf{x}})$
+(\Phi(\hat{\mathbf{x}})\pi_{\mu})^{T}\Sigma_{\text{diag}}(\Phi(\hat{\mathbf{x}})\pi_{\mu})$
 
-\textbf{Eq. 15}: The approximation from ref [34] in the paper provides the Taylor Series approximation of
+The approximation from ref [34] in the paper provides the Taylor Series approximation of
 
-$ \mathcal{N}\Big(\frac{\mu_{j}}{\mu_{d}},\frac{\mu_{j}^{2}}{\mu_{d}^{2}}\big(\sigma^{2}_{j} / \mu_{j}^{2} +  \sigma^{2}_{d} / \mu_{d}^{2} \big)\Big)$. The issue with this is the square of the $\mu_{d}$ terms, as this is at risk of numerical overflow in single-point precision. Instead we use $\sigma^{2} \approx \mu_{j} / \mu_{d}\sqrt{\sigma^{2}_{j} + \sigma^{2}_{d}}$, which emperically follwed a similar trend and was less of a risk for numerical overflow (though not immune).
+$ \mathcal{N}\Big(\frac{\mu_{j}}{\mu_{d}},\frac{\mu_{j}^{2}}{\mu_{d}^{2}}\big(\sigma^{2}_{j} / \mu_{j}^{2} +  \sigma^{2}_{d} / \mu_{d}^{2} \big)\Big)$. The issue with this is the square of the $\mu_{d}$ terms, as this is at risk of numerical overflow in single-point precision. Instead we use in \textbf{Eq.15} $\sigma^{2} \approx \mu_{j} / \mu_{d}\sqrt{\sigma^{2}_{j} + \sigma^{2}_{d}}$, which emperically follwed a similar trend and was less of a risk for numerical overflow (though not immune).
 
-In Table 1, predictive performance metrics for PIDNet used the pre-trained weights from the official repo for the testing set of CityScapes, which appears to have included the validation data during training. The mIOU for PIDNet and Bayes-PIDNet with the weights for the validation set are 0.761 and 0.758 respectively.
+In Table 1, predictive performance metrics for PIDNet used the pre-trained weights from the official repo for the testing set of CityScapes. I initially thought this was due to me evaluating at 1024x512 instead of 2048x1024 like the original paper did, but it that those weights have included the validation data during training. The mIoU for PIDNet and Bayes-PIDNet with the weights for the validation set are 0.761 and 0.758 respectively.
 
 \vspace*{1cm}
 \section{Piecewise Deterministic Markov Processes for Bayesian Neural Networks}
@@ -61,11 +60,10 @@ Corrected on arXiv
 
 \vspace*{1cm}
 \section{Bayesian Neural Networks: An Introduction and Survey}
-Corrected on arXiv
 
-Typos in, \textbf{Eqns 29-31} for leap frog integration. Have changed to match version given by Neal which is simpler.
-
-\textbf{Eq. 28} missing factor of $1/2$.
+\textbf{Eqn 30} for leap frog integration, the step should be $\epsilon/2$.
 
 For the $\alpha$ divergence on page 31, the limits to relate to forward/reverse KL divergence and Hellinger distance were not correct. It should be, $KL(q|p): \alpha \rightarrow 0, KL(p|q): \alpha \rightarrow 1,$ Hellinger: $ \alpha \rightarrow 0.5$.
+
+\textbf{Eq. 58} missing factor of $1/2$.
 \end{document}
