@@ -19,7 +19,7 @@ headheight=1mm,% Set \headheight to 10mm
 \fancyfoot[L]{\today}
 
 % Useful packages
-\usepackage{amsmath}
+\usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
@@ -29,7 +29,7 @@ headheight=1mm,% Set \headheight to 10mm
 \titleformat*{\section}{\bfseries}
 \font\titlefont=cmr12 at 15pt
 \font\authorfont=cmr12 at 10pt
-\title{{\titlefont Errata: Uncertainty in Real-Time Semantic Segmentation on Embedded Systems}}
+\title{{\titlefont Errata: Bayesian Neural Networks: An Introduction and Survey}}
 \author{{\authorfont Ethan Goan}}
 \date{} % no date
 
@@ -39,18 +39,29 @@ headheight=1mm,% Set \headheight to 10mm
 \thispagestyle{fancy} % make footer appear
 Errata Corrected on arXiv version of paper.
 
-\textbf{Eqn 30} on page 20 for leap frog integration, the step should be $\epsilon/2$. I am not happy with the notation there. Instead use,
+\textbf{Eqn 3.30} on page 63 for leap frog integration, the step should be $\epsilon/2$. I am not happy with the notation there. Instead use,
 
-\begin{align}
+\begin{align*}
   v_i(t + \frac{\epsilon}{2}) = v_i(t) + \frac{\epsilon}{2} \dfrac{dv_{i}(t)}{dt}(v(t)),
   \\
   w_i(t + \epsilon) = w_i(t) + \epsilon \frac{dw_{i}(t + \epsilon /2)}{dt},
   \\
   v_i(t + \epsilon) = v_i(t +\frac{\epsilon}{2}) + \frac{\epsilon}{2} \dfrac{dv_{i}(t + \epsilon)}{dt}.
-\end{align}
+\end{align*}
 
-For the $\alpha$ divergence on page 31, the limits to relate to forward/reverse KL divergence and Hellinger distance were not correct. It should be, $KL(q|p): \alpha \rightarrow 0, KL(p|q): \alpha \rightarrow 1,$ Hellinger: $ \alpha \rightarrow 0.5$.
+\textbf{Eqn. 3.48} on page 68, is missing the logarithms, it should read,
+\begin{equation*}
+    \sigma_{t+1} =
+                 \sigma_t + \sigma_t^2 \Big[ \big( \dfrac{\partial \log p(\mathcal{D}_{t+1})}{\partial \mu_t} \big)^2 -
+                 2 \dfrac{\partial \log p(\mathcal{D}_{t+1})}{ \partial \sigma} \Big].
+\end{equation*}
 
-\textbf{Eq. 58} missing factor of $1/2$, and should be stated that this is the squared Hellinger Distance, which is a valid distance metric.
 
+\textbf{Eqn. 3.53} on page 69, the $e$ should be a $\mathbb{E}$
+  
+For the $\alpha$ divergence on page 75, the limits to relate to forward/reverse KL divergence and Hellinger distance were not correct. It should be, $KL(q|p): \alpha \rightarrow 0, KL(p|q): \alpha \rightarrow 1,$ Hellinger: $ \alpha \rightarrow 0.5$.
+
+\textbf{Eq. 3.58} missing factor of $1/2$
+
+\textbf{Eq. 3.63} page 79 missing $\exp$ in numerator for softmax.
 \end{document}
