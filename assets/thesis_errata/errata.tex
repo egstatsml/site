@@ -1,0 +1,131 @@
+\documentclass{article}
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+\usepackage[letterpaper,% Set the height and width of the paper
+% includehead,
+nomarginpar,% We don't want any margin paragraphs
+textwidth=15cm,% Set \textwidth to 15cm
+headheight=0mm,% Set \headheight to 10mm
+headsep=0mm,
+]{geometry}
+
+\usepackage{fancyhdr}
+\fancyhead{} % clear all header fields
+\fancyfoot{} % clear all footer fields
+\renewcommand{\headrulewidth}{0pt}  % no line in header area
+\renewcommand{\footrulewidth}{1pt}  % no line in header area
+\pagestyle{fancy}
+\fancyfoot[L]{\today}
+
+% Useful packages
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\usepackage{titlesec}
+% \renewcommand{\contentsname}{}
+\titleformat*{\section}{\bfseries}
+\font\titlefont=cmr12 at 15pt
+\font\authorfont=cmr12 at 10pt
+\title{{\titlefont Errata: Practical Uncertainty in Neural Networks}}
+\author{{\authorfont Ethan Goan}}
+\date{} % no date
+
+\DeclareMathOperator{\erf}{erf}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy} % make footer appear
+
+\textbf{p37, Eqn 3.30} for leap frog integration, the step should be $\epsilon/2$. I am not happy with the notation there. Instead use,
+
+\begin{align*}
+  v_i(t + \frac{\epsilon}{2}) = v_i(t) + \frac{\epsilon}{2} \dfrac{dv_{i}(t)}{dt},
+  \\
+  w_i(t + \epsilon) = w_i(t) + \epsilon \frac{dw_{i}(t + \epsilon /2)}{dt},
+  \\
+  v_i(t + \epsilon) = v_i(t +\frac{\epsilon}{2}) + \frac{\epsilon}{2} \dfrac{dv_{i}(t + \epsilon)}{dt}.
+\end{align*}
+
+
+\textbf{p51} For the $\alpha$ divergence on page 75, the limits to relate to forward/reverse KL divergence and Hellinger distance were not correct. It should be, $KL(q|p): \alpha \rightarrow 0, KL(p|q): \alpha \rightarrow 1,$ Hellinger: $ \alpha \rightarrow 0.5$.
+
+\textbf{p51 Eq. 3.58} missing factor of $1/2$
+
+
+\textbf{p107, Eq 4.7:}  $ p(\mathbf{w} | \mathbf{X}, \mathbf{Y} , \theta ) \propto \Big[\prod_{i=0}^{N-1}\mathcal{N}\Big({\color{red}\mathbf{y}}|f(\mathbf{x}_{i};\theta) \mathbf{w}, \sigma^{2}\Big)\Big] p(\mathbf{w}).$
+
+\textbf{Eq 4.11 and 4.15:} are missing $\Phi$, they should read
+
+$\sigma^{2}_{N}(\hat{\mathbf{x}}) =
+\sigma^{2} + \Phi(\hat{\mathbf{x}})^{T}\Sigma_{\pi} \Phi(\hat{\mathbf{x}})$ and
+$\sigma^{2}_{N}(\hat{\mathbf{x}}) \approx \sigma^{2}
+\Phi(\hat{\mathbf{x}})^{T}\Sigma_{\text{diag}} \Phi(\hat{\mathbf{x}})$
+
+\textbf{p111, Eq 4.22:} The approximation from ref [34] in the paper provides the Taylor Series approximation of
+$ \mathcal{N}\Big(\frac{\mu_{j}}{\mu_{d}},\frac{\mu_{j}^{2}}{\mu_{d}^{2}}\big(\sigma^{2}_{j} / \mu_{j}^{2} +  \sigma^{2}_{d} / \mu_{d}^{2} \big)\Big)$. The issue with this is the square of the $\mu_{d}$ terms, as this is at risk of numerical overflow in half floating-point precision. Instead we use in $\sigma^{2} \approx \mu_{j} / \mu_{d}\sqrt{\sigma^{2}_{j} + \sigma^{2}_{d}}$, which emperically follwed a similar trend and was less of a risk for numerical overflow (though not immune).
+
+\textbf{p135, Eq. 5.13}, the integral sign should be there in the denominator.
+
+
+\textbf{p143}, Eqn 5.43, and \textbf{Pg. 146} Eqn 5.46, Typo in missing square term.
+  \begin{align*}
+    \frac{\sigma^{2}}{2} &\int_{-\infty} ^{\infty}v^{2} \erf\Big(\frac{(\sigma v + \mu)}{\sqrt{2}}\Big)\phi(v) dv \nonumber
+    \\ = &\frac{\sigma^{2}}{4\sqrt{2\pi}} \Big[ \frac{\sqrt{\pi}}{\alpha_{1} \sqrt{\alpha_{1}}}
+    \erf\Big({\frac{\sqrt{\alpha_{1}}b_{1}}{\sqrt{\alpha_{1} + a_{1}^{2}}}}\Big)
+    -  \frac{1}{\alpha_{1}\sqrt{\alpha_{1} + a_{1}^{2}}} \frac{2a_{1}^{2}b_{1}}{\alpha_{1} + a_{1}^{2}}
+    \exp{\big(\frac{-\alpha_{1} b_{1}^{\textcolor{red}{2}}}{\alpha_{1} + a_{1}^{2}}\big)} \Big]
+  \end{align*}
+
+  This same typo carried over to integral property from [240, EQ. 2.7.3.9]
+  \begin{align*}
+    \int_{_{-\infty}}^{\infty} z^{2}\exp{(\alpha^{2})} \erf(\alpha_{1}z + \beta_{1})
+    &=
+    \frac{\sqrt{\pi}}{2\alpha \sqrt{\alpha}}
+      \erf\Big({\frac{\sqrt{\alpha}\beta_{1}}{\sqrt{\alpha + \alpha_{1}^{2}}}}\Big)
+      \nonumber\\&
+    -  \frac{1}{\sqrt{\alpha + \alpha_{1}^{2}}} \frac{2\alpha_{1}^{2} \beta_{1}}{\alpha + \alpha_{1}^{2}}
+    \exp{\frac{-\alpha \beta_{1}^{\textcolor{red}{2}}}{\alpha + \alpha^{2}}}
+  \end{align*}
+
+
+  And to the final result on \textbf{Pg. 147}, Eqn 5.61 for the approximation to the variance of the Gelu function,
+
+  \begin{align*}
+    \sigma_{g}^2 \approx & \frac{\sigma^{2} + \mu^{2}}{2} \nonumber
+                 \\
+    % second first term
+              &+
+                \frac{\sigma^{2}}{4\sqrt{2\pi}} \Big[ \frac{\sqrt{\pi}}{\alpha_{1} \sqrt{\alpha_{1}}}
+                \erf\Big({\frac{\sqrt{\alpha_{1}}b_{1}}{\sqrt{\alpha_{1} + a_{1}^{2}}}}\Big)
+                -  \frac{1}{\alpha_{1}\sqrt{\alpha_{1} + a_{1}^{2}}} \frac{2a_{1}^{2}b_{1}}{\alpha_{1} + a_{1}^{2}}
+                \exp{\big(\frac{-\alpha_{1} b_{1}^{\textcolor{red}{2}}}{\alpha_{1} + a_{1}^{2}}\big)} \Big] \nonumber
+    \\% second second term
+              & +
+                \frac{\mu \sigma a_{2}}{\alpha_{2}\sqrt{2\pi(a_{2}^{2} + \alpha_{2})}}
+                \exp\Big( - \frac{\alpha_{2} b_{2}^{2}}{a_{2}^{2} + \alpha_{2}} \Big) \nonumber
+    \\% second third term
+              & +
+                \frac{\mu^{2}}{2\sqrt{2\alpha_{3}}} \erf\Big(
+                \frac{2\alpha_{3}b_{3}}{2\sqrt{\alpha_{3}^{2} + \alpha_{3}a_{3}^{2}}} \Big) \nonumber
+    \\% third term
+              & - \frac{(2\alpha_{4}^{2} + b_{4}^{2})}{16\sigma\alpha_{4}^{5}\sqrt{2}}
+                \exp \Big(
+                \frac{b_{4}^{2}}{4\alpha_{4}^{2}} + \gamma \Big)
+                - \mu_{g}^{2}
+  \end{align*}
+  where, $\alpha_{1}, \alpha_{2}, \alpha_{3} = \frac{1}{2}$, $b_{1},
+    b_{2}, b_{3} = \frac{\mu}{\sqrt{2}}$, $a_1, a_{2},
+    a_{3} = \frac{\sigma}{\sqrt{2}}$, $\alpha_{4} =
+    \sqrt{\frac{1}{2\sigma^{2}} + \frac{\eta}{2}}$, $b_{4} =
+    \frac{\mu}{\sigma^{2}}$ and $\gamma = -\frac{\mu^{2}}{2\sigma^{2}}$, $\eta = 1.23907$.
+
+\textbf{pg. 150, Eqn 5.68}, the last term are wrong way around. Should read,
+ \begin{equation*}
+    \Omega = \Omega_{X}\Omega_{Y} + \Omega_{X}\mu^{2}_{Y} + \textcolor{red}{\mu^{2}_{X}\Omega_{Y}}.
+  \end{equation*}
+
+\end{document}
