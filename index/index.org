@@ -21,7 +21,7 @@ You can contact me at: ej[dot]goan[at]qut[dot]edu[dot]au
 
 W. Xiao, E. Goan, R. Santa Cruz, D. Ahmedt-Aristizabal, O. Salvado, C. Fookes, and L. Lebrat. In depth
 we trust: Reliable monocular depth supervision for gaussian splatting. In Proceedings of the IEEE/CVF
-Conference on Computer Vision and Pattern Recognition, 2026. paper to appear soon
+Conference on Computer Vision and Pattern Recognition, 2026. [[https://arxiv.org/abs/2604.05715][[paper]]]
 
 A. Pemasiri, E. Goan, G. Lichtwark, R. Schuster, L. Kelly, and C. Fookes. Biomechanically accurate gait
 analysis: A 3d human reconstruction framework for markerless estimation of gait parameters. In IEEE
@@ -57,3 +57,5 @@ and Applications (DICTA), pages 1–8. IEEE, 2017. [[https://ieeexplore.ieee.org
 
 R. Arablouei, E. Goan, S. Gensemer, and B. Kusy. Fast and robust pushbroom hyperspectral imaging via dmd-based scanning.
 In Novel Optical Systems Design and Optimization XIX, SPIE, 2016. [[https://arxiv.org/pdf/1608.00361][[paper]]]
+
+E. Goan, Practical Uncertainty in Neural Networks, PhD Thesis, Queensland University of Technology, 2024. [[[https://eprints.qut.edu.au/246038/][thesis]]]
