@@ -58,4 +58,4 @@ and Applications (DICTA), pages 1–8. IEEE, 2017. [[https://ieeexplore.ieee.org
 R. Arablouei, E. Goan, S. Gensemer, and B. Kusy. Fast and robust pushbroom hyperspectral imaging via dmd-based scanning.
 In Novel Optical Systems Design and Optimization XIX, SPIE, 2016. [[https://arxiv.org/pdf/1608.00361][[paper]]]
 
-E. Goan, Practical Uncertainty in Neural Networks, PhD Thesis, Queensland University of Technology, 2024. [[[https://eprints.qut.edu.au/246038/][thesis]]]
+E. Goan, Practical Uncertainty in Neural Networks, PhD Thesis, Queensland University of Technology, 2024. [[[https://eprints.qut.edu.au/246038/][thesis]]] [[[file:assets/thesis_errata/errata.pdf][errata]]]
